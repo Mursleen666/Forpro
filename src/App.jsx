@@ -15,11 +15,22 @@ import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import ReactPixel from "react-facebook-pixel"
 
 
 
 
 const App = () => {
+
+  const location = useLocation()
+
+  useEffect(() => {
+    ReactPixel.pageView() // fires on every route change
+  }, [location])
+
+
   return (
    
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
